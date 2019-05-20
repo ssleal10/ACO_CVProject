@@ -27,8 +27,7 @@ def read_crop_bbox(filename,x_img, y_img,width_img,height_img):
 #para leer una imagen y cortar con bbox
 def read_crop_bbox_ext(filename,x_img,y_img,width_img,height_img,ext_w,ext_h):
     image = mpimg.imread(filename)
-    image = image[(y_img-ext_h):(y_img+height_img+ext_h),
-                  (x_img-ext_w):(x_img+width_img+ext_w)]
+    #image = image[(y_img-ext_h):(y_img+height_img+ext_h),(x_img-ext_w):(x_img+width_img+ext_w)]
     return image
 
 
@@ -71,10 +70,12 @@ def save_crp_train(json_data_train,i_id):
         x_img=ext_w+1
         
     image_bbox = read_crop_bbox_ext(filename,x_img,y_img,width_img,height_img,ext_w,ext_h)
-
     
-    mpimg.imsave('images/c_'+str2,image_bbox)
-    return image_bbox
+    image_out = resize(image_bbox, (416, 416),
+                       anti_aliasing=True)
+    
+    mpimg.imsave('images/c_'+str2,image_out)
+    return image_out
 
 
 for i_id in range(np.size(json_data_train['annotations'])):

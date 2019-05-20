@@ -12,8 +12,7 @@ def read_crop_bbox_ext(filename,x_img,y_img,width_img,height_img,ext_w,ext_h):
                   (x_img-ext_w):(x_img+width_img+ext_w)]
     #size_image = (height_img+2*ext_h,height_img+2*ext_h)
     return image
-
-
+ 
 with open('retail-product-checkout-dataset/instances_train2019.json', 
           encoding='utf-8-sig') as json_file:
     json_data_train = json.load(json_file) #Cargar anotaciones de train
@@ -28,7 +27,7 @@ def save_crp_train(json_data_train,i_id):
     y_img = np.int(np.floor(json_data_train['annotations'][i_id]['bbox'][1])) #bbox y-coord
     width_img = np.int(np.floor(json_data_train['annotations'][i_id]['bbox'][2])) #bbox width
     height_img = np.int(np.floor(json_data_train['annotations'][i_id]['bbox'][3])) #bbox height
-    category_id = json_data_train['annotations'][i_id]['category_id'] #id de la categoria a la que pertenece
+    category_id = (json_data_train['annotations'][i_id]['category_id'])-1 #id de la categoria a la que pertenece
 
 
     ext_w = int(np.floor(width_img/8))
