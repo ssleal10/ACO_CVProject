@@ -84,14 +84,14 @@ def save_crp_train(json_data_train,i_id):
         
     image_bbox = read_crop_bbox_ext(filename,x_img,y_img,width_img,height_img,ext_w,ext_h)
     
-    image_out = resize(image_bbox, (image_bbox.shape[0] / 4, image_bbox.shape[1] / 4),
+    image_out = resize(image_bbox, (int(image_bbox.shape[0] / 4), int(image_bbox.shape[1] / 4)),
                        anti_aliasing=True)
     
 
-    if not os.path.exists('images'+'/'+str3):
-        os.makedirs('images'+'/'+str3)
+    if not os.path.exists('images'+'/'+str(str3)):
+        os.makedirs('images'+'/'+str(str3))
     
-    mpimg.imsave('images'+'/'+str3+'/'+'c_'+str2,image_out)
+    mpimg.imsave('images'+'/'+str(str3)+'/'+'c_'+str2,image_out)
     return image_out
 
 
