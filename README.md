@@ -9,3 +9,6 @@ Having the crop images at each view of each instance of the products, a YOLO det
 Then a new model was trained using the same parameters that the last one but trained after 10 epochs. This model was used to detect and the resuslts were visulized using a confidende threshold of 0.7.
 
 Finally, a model was trained using the same parameters that the last ones, but this time angle variations, maximum 90 degrees, were considered. Then the model was used to detect on the validation dataset for different values of confidence threshold.
+
+
+Considering the several limitations that the model tends to present because of the lack of a domain translation method. syndata-generation method proposed by [cite] was adopted. For that purpose, segmentation mask were required ...
