@@ -1,1 +1,1 @@
-PoolNet addapted for ACO
+PoolNet adapted for ACO
