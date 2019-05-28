@@ -1,6 +1,5 @@
 # Implementation taken from: https://github.com/eriklindernoren/PyTorch-YOLOv3 and adapted for the Retail Product Checkout Dataset. 
 
-
 # PyTorch-YOLOv3
 A minimal PyTorch implementation of YOLOv3, with support for training, inference and evaluation.
 
