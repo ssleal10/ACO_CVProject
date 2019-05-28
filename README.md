@@ -17,12 +17,12 @@ Repository for the computer vision project
 2. See results in output directory.
 
 ## Scripts description:
-ACO_crp_YOLO.py - generates labels for training the YOLO detector.
-ACO_for_syndata.py - generates image samples for syndata image generation.
-ACO_names_YOLO.py	- generates necessary .txt for training the YOLO detector.
-ACO_resize_val.py	- resizes validation set, not used in final results but used to test computation time and memory used.
-ACO_save_crp_train.py	- generates image samples for trainining the YOLO detector.
-ACO_savesub_crp_train.py - generates image samples in subfolders for syndata image generation.
+1. ACO_crp_YOLO.py - generates labels for training the YOLO detector.
+2. ACO_for_syndata.py - generates image samples for syndata image generation.
+3. ACO_names_YOLO.py	- generates necessary .txt for training the YOLO detector.
+4. ACO_resize_val.py	- resizes validation set, not used in final results but used to test computation time and memory used.
+5. ACO_save_crp_train.py	- generates image samples for trainining the YOLO detector.
+6. ACO_savesub_crp_train.py - generates image samples in subfolders for syndata image generation.
 
 
 
