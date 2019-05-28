@@ -1,14 +1,30 @@
 # ACO_ComputerVisionProject
 Repository for the computer vision project
+## To dowload the dataset:
+1. Install kaggle API and API credentials.
+2. Run "kaggle datasets download -d diyer22/retail-product-checkout-dataset"
+
+## To train a model using the YOLO detector (done by: https://github.com/eriklindernoren/PyTorch-YOLOv3):
+1. mkdir images 
+2. Run "python3 ACO_save_crp_train.py"
+3. Place the images folder obtained to PyTorch-YOLOv3/data/custom/images
+4. mkdir labels
+5. Run "python3 ACO_crp_YOLO.py"
+6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels}
+7. Run "--model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
+## To detect using the trained YOLO model.
+1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
+2. See results in output directory.
+
+## Scripts description:
+ACO_crp_YOLO.py - generates labels for training the YOLO detector.
+ACO_for_syndata.py - generates image samples for syndata image generation.
+ACO_names_YOLO.py	- generates necessary .txt for training the YOLO detector.
+ACO_resize_val.py	- resizes validation set, not used in final results but used to test computation time and memory used.
+ACO_save_crp_train.py	- generates image samples for trainining the YOLO detector.
+ACO_savesub_crp_train.py - generates image samples in subfolders for syndata image generation.
 
 
-Methodology implemented for the YOLO detector:
-
-Having the crop images at each view of each instance of the products, a YOLO detector was trained without using a domain translation method. The parameters used were; learning rate: 0.001 Decay: 0.0005 batch: 5 momentum: 0.9. No angle variation was taken in to account into the detector at first. Then, after training for 7 epochs the model was used to detect on the validation set. After detecting on the validation dataset the results were visualized first using a confidence threshold of 0.7. After, detections were made using the same trained model with a confidence threshold of 0.5. 
-
-Then a new model was trained using the same parameters that the last one but trained after 10 epochs. This model was used to detect and the resuslts were visulized using a confidende threshold of 0.7.
-
-Finally, a model was trained using the same parameters that the last ones, but this time angle variations, maximum 90 degrees, were considered. Then the model was used to detect on the validation dataset for different values of confidence threshold.
 
 
-Considering the several limitations that the model tends to present because of the lack of a domain translation method. syndata-generation method proposed by [cite] was adopted. For that purpose, segmentation masks were required in order to generate new images which contain multiple instances of several products with oclussion and rotated versions of each one...
+
