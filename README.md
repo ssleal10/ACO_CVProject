@@ -4,7 +4,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 
 ## To dowload the dataset:
 
-1. Install kaggle API and API credentials.
+1. Install kaggle API and API credentials. (Read: https://github.com/Kaggle/kaggle-api)
 2. Run "kaggle datasets download -d diyer22/retail-product-checkout-dataset"
 
 ## To train a model using the YOLO detector (done by: https://github.com/eriklindernoren/PyTorch-YOLOv3):
@@ -28,7 +28,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 2. Get poisson blending library. (https://github.com/yskmt/pb)
 3. Modify defaults.py as desired.
 4. Run "python2 dataset_generator.py *path_to_ACO_for_syndata.py_output* *outputDesiredDirectory*
-### syndata-generation Python3 version available at: (https://github.com/yueweiyang/syndata-generation *has issues*)
+### syndata-generation Python3 version available at: (https://github.com/yueweiyang/syndata-generation _has issues_)
 
 ## Scripts description:
 1. ACO_crp_YOLO.py - generates labels for training the YOLO detector.
