@@ -22,12 +22,13 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
 2. See results in output directory.
 
-## To generate multiple product images (domain-translation)
+## To generate multiple product images (domain-translation, done by: https://github.com/debidatta/syndata-generation)
 
-1. Install required libraries (Read: https://github.com/debidatta/syndata-generation)
-2. Get poisson blending library (https://github.com/yskmt/pb)
+1. Install required libraries. (Read: https://github.com/debidatta/syndata-generation)
+2. Get poisson blending library. (https://github.com/yskmt/pb)
 3. Modify defaults.py as desired.
 4. Run "python2 dataset_generator.py *path_to_ACO_for_syndata.py_output* *outputDesiredDirectory*
+### syndata-generation Python3 version available at: (https://github.com/yueweiyang/syndata-generation *has issues*)
 
 ## Scripts description:
 1. ACO_crp_YOLO.py - generates labels for training the YOLO detector.
