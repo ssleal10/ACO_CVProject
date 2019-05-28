@@ -28,7 +28,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 2. Get poisson blending library. (https://github.com/yskmt/pb)
 3. Modify defaults.py as desired.
 4. Run "python2 dataset_generator.py *path_to_ACO_for_syndata.py_output* *outputDesiredDirectory*
-### syndata-generation Python3 version available at: (https://github.com/yueweiyang/syndata-generation _has issues_)
+### syndata-generation Python3 version available at: (https://github.com/yueweiyang/syndata-generation *has issues*)
 
 ## Scripts description:
 1. ACO_crp_YOLO.py - generates labels for training the YOLO detector.
