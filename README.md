@@ -12,9 +12,16 @@ Repository for the computer vision project
 5. Run "python3 ACO_crp_YOLO.py"
 6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels}
 7. Run "--model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
+
 ### To detect using the trained YOLO model.
 1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
 2. See results in output directory.
+
+## To generate multiple product images (domain-translation)
+1. Install required libraries (Read: https://github.com/debidatta/syndata-generation)
+2. Get poisson blending library (https://github.com/yskmt/pb)
+3. Modify defaults as desired.
+4. Run "python2 dataset_generator.py *path_to_ACO_for_syndata.py_output* *outputDesiredDirectory*
 
 ## Scripts description:
 1. ACO_crp_YOLO.py - generates labels for training the YOLO detector.
