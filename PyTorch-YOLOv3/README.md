@@ -1,4 +1,4 @@
-# Implementation taken from: https://github.com/eriklindernoren/PyTorch-YOLOv3 and adapted for the retail product checkout dataset. 
+# Implementation taken from: https://github.com/eriklindernoren/PyTorch-YOLOv3 and adapted for the Retail Product Checkout Dataset. 
 
 
 # PyTorch-YOLOv3
