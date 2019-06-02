@@ -14,7 +14,7 @@ To evaluate results (get precision and recall) obtained in demo:
 1. Run "python3 test.py"
 *if ran before demo.py: evaluates the results obtained in the validation dataset (gets precision and recall). if ran after demo.py: evaluates the results obtained in the demo images(gets precision and recall)*
 
-The script PR_curve.py depicts the precision-recall curve presentend in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
+The script PR_curve.py depicts the precision-recall curve presented in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
 
 ### To download the dataset
 
