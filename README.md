@@ -10,7 +10,9 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 
 To evaluate results (get precision and recall) obtained in demo:
 
+
 1. Run "python3 test.py"
+*if ran before demo.py: evaluates the results obtained in the validation dataset (gets precision and recall). if ran after demo.py: evaluates the results obtained in the demo images(gets precision and recall)*
 
 The script PR_curve.py depicts the precision-recall curve presentend in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
 
@@ -46,8 +48,8 @@ The script PR_curve.py depicts the precision-recall curve presentend in the pape
 6. ACO_savesub_crp_train.py - generates image samples in subfolders for syndata image generation.
 7. PyTorch-YOLOv3/PR-curve.py - depicts the precision recall curve presented on the paper.
 8. PyTorch-YOLOv3/demo.py - performs detection on a sample image and generates results.
-9. PyTorch-YOLOv3/test.py - if ran before demo.py: evaluates (gets precision and recall) the results obtained in the validation dataset. 
-                          - if ran after demo.py: evaluates (gets precision and recall) the results obtained in the demo images.
+9. PyTorch-YOLOv3/test.py - if ran before demo.py: gets precision and recall of the results obtained in the validation dataset. 
+                          - if ran after demo.py: gets precision and recall of the results obtained in the demo images.
 
 
 
