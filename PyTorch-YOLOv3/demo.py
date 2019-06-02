@@ -157,7 +157,7 @@ if __name__ == "__main__":
                     bbox={"color": color, "pad": 0},
                 )
                 file.write(str(classes[int(cls_pred)])+",")
-            file.write("; \n") 
+            file.write(": \n") 
 
         # Save generated image with detections
         plt.axis("off")
