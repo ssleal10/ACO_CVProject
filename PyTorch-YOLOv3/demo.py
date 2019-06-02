@@ -23,6 +23,7 @@ from matplotlib.ticker import NullLocator
 import urllib.request
 import zipfile
 import random
+import matplotlib.image as mpimg
 
 if __name__ == "__main__":
     print('Downloading images...')
@@ -175,5 +176,6 @@ if __name__ == "__main__":
         if os.path.isfile(os.path.join(path, x))
     ])
     print(random_filename)
-    image = Image.open("output" + "/" +str(random_filename))
-    image.show()
+    img=mpimg.imread("output" + "/" +str(random_filename))
+    imgplot = plt.imshow(img)
+    plt.show()
