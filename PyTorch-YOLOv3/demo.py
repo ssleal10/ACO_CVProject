@@ -41,7 +41,7 @@ if __name__ == "__main__":
     
     url = 'https://www.dropbox.com/s/wveb53yauo63qzg/yolov3_ckpt_6.pth?dl=1'  
     urllib.request.urlretrieve(url,'domain_translated_model.pth') 
-    url2 = 'https://www.dropbox.com/s/kbld3rk51ri10bq/model2.pth?dl=1'
+    url2 = 'https://www.dropbox.com/s/bvmk5k61p55dbh6/modelo0.pth?dl=0'
     urllib.request.urlretrieve(url2,'non_domain_translated_model.pth')
     print('Done!')
     
@@ -54,7 +54,6 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=1, help="size of the batches")
     parser.add_argument("--n_cpu", type=int, default=0, help="number of cpu threads to use during batch generation")
     parser.add_argument("--img_size", type=int, default=416, help="size of each image dimension")
-    parser.add_argument("--checkpoint_model", type=str, help="path to checkpoint model")
     parser.add_argument("--domain_translated_model", default=True, help="if False will load model trained without domain translation")
     opt = parser.parse_args()
     print(opt)
