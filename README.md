@@ -2,7 +2,15 @@
 
 Repository for the computer vision project / Retail Product Checkout Dataset
 
-## To dowload the dataset
+## To run the DEMO & TEST (Detections & Precision/Recall) using the trained YOLO model.
+
+1. Run "python3 demo.py"
+2. See results in output directory.
+
+To evaluate results obtained in demo:
+1. Run "test.py"
+
+## To download the dataset
 
 1. Install kaggle API and API credentials. ( Read: https://github.com/Kaggle/kaggle-api )
 2. Run "kaggle datasets download -d diyer22/retail-product-checkout-dataset"
@@ -16,11 +24,6 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 5. Run "python3 ACO_crp_YOLO.py"
 6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels
 7. Run "python3 train.py --model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
-
-### To run the DEMO (detect) using the trained YOLO model.
-
-1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
-2. See results in output directory.
 
 ## To generate multiple product images ( Domain-Translation, done by: https://github.com/debidatta/syndata-generation )
 
