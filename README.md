@@ -21,6 +21,8 @@ To evaluate results (get precision and recall) obtained in demo:
 
 The script PR_curve.py depicts the precision-recall curve presented in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
 
+************************************************************************************************************************************
+
 ### To download the dataset
 
 1. Install kaggle API and API credentials. ( Read: https://github.com/Kaggle/kaggle-api )
