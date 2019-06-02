@@ -17,7 +17,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels}
 7. Run "--model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
 
-### To detect using the trained YOLO model.
+### To run the DEMO (detect) using the trained YOLO model.
 
 1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
 2. See results in output directory.
