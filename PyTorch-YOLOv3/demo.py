@@ -41,7 +41,7 @@ if __name__ == "__main__":
     
     url = 'https://www.dropbox.com/s/wveb53yauo63qzg/yolov3_ckpt_6.pth?dl=1'  
     urllib.request.urlretrieve(url,'domain_translated_model.pth') 
-    url2 = 'https://www.dropbox.com/s/bvmk5k61p55dbh6/modelo0.pth?dl=1'
+    url2 = 'https://www.dropbox.com/s/4culeqpjhthj5x7/checkpointmodel2.pth?dl=1'
     urllib.request.urlretrieve(url2,'non_domain_translated_model.pth')
     print('Done!')
     
