@@ -7,6 +7,8 @@ A minimal PyTorch implementation of YOLOv3, with support for training, inference
 1. Run "python3 detect.py --image_folder ../retail-product-checkout-dataset/val2019/ --model_def config/yolov3-custom.cfg --weights_path savedModel.pth --class_path data/custom/classes.names --conf_thres desiredConfidenceThreshold"
 2. See results in output directory.
 
+The script PR_curve.py depicts the precision-recall curve presentend in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model.
+
 ### YOLOv3: An Incremental Improvement
 _Joseph Redmon, Ali Farhadi_ <br>
 
