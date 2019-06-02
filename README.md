@@ -17,12 +17,12 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 
 To evaluate results (get precision and recall) obtained in demo:
 
-4. Run "python3 test.py": will overwrite old "Results.txt"(Results from validation dataset).
+4. Run "python3 test.py" again: will overwrite old "Results.txt"(Results from validation dataset).
 
 The script PR_curve.py depicts the precision-recall curve presented in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
 
 ************************************************************************************************************************************
-
+------------------------------------------------------------------------------------------------------------------------------------
 ### To download the dataset
 
 1. Install kaggle API and API credentials. ( Read: https://github.com/Kaggle/kaggle-api )
