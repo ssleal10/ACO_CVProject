@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 # Grafica mostrada en el paper, guardando los datos(precision y cobertura) obtenidos para cada 
-# umbral de confianza. X=Recall Y=Precision
+# umbral de confianza. X=Recall Y=Precision.
+# Precisión y cobertura obtenidos con test.py
 
 x1 = [0.076,0.08,0.082,0.085]
 y1 = [0.02,0.019,0.015,0.008]
