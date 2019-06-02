@@ -44,8 +44,10 @@ The script PR_curve.py depicts the precision-recall curve presentend in the pape
 4. ACO_resize_val.py	- resizes validation set, not used in final results but used to test computation time and memory used.
 5. ACO_save_crp_train.py	- generates image samples for trainining the YOLO detector.
 6. ACO_savesub_crp_train.py - generates image samples in subfolders for syndata image generation.
-
-
+7. PyTorch-YOLOv3/PR-curve.py - depicts the precision recall curve presented on the paper.
+8. PyTorch-YOLOv3/demo.py - performs detection on a sample image and generates results.
+9. PyTorch-YOLOv3/test.py - if ran before demo.py: evaluates (gets precision and recall) the results obtained in the validation dataset. 
+                          - if ran after demo.py: evaluates (gets precision and recall) the results obtained in the demo images.
 
 
 
