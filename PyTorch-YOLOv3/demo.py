@@ -24,7 +24,6 @@ import urllib.request
 import zipfile
 import random
 import matplotlib.image as mpimg
-from skimage import io
 
 if __name__ == "__main__":
     print('Downloading images...')
@@ -38,16 +37,18 @@ if __name__ == "__main__":
     zip_ref.close()
     print('Done!')
     
-    print('Downloading model...')
+    print('Downloading models...')
     
     url = 'https://www.dropbox.com/s/wveb53yauo63qzg/yolov3_ckpt_6.pth?dl=1'  
-    urllib.request.urlretrieve(url,'yolov3_ckpt_6.pth') 
+    urllib.request.urlretrieve(url,'domain_translated_model.pth') 
+    url2 = 'https://www.dropbox.com/s/kbld3rk51ri10bq/model2.pth?dl=1'
+    urllib.request.urlretrieve(url2,'non_domain_translated_model.pth')
     print('Done!')
     
     parser = argparse.ArgumentParser()
     parser.add_argument("--image_folder", type=str, default="val2019p", help="path to dataset")
     parser.add_argument("--model_def", type=str, default="config/yolov3-custom.cfg", help="path to model definition file")
-    parser.add_argument("--weights_path", type=str, default="yolov3_ckpt_6.pth", help="path to weights file")
+    parser.add_argument("--weights_path", type=str, default="domain_translated_model.pth", help="path to weights file")
     parser.add_argument("--class_path", type=str, default="data/custom/classes.names", help="path to class label file")
     parser.add_argument("--conf_thres", type=float, default=0.6, help="object confidence threshold")
     parser.add_argument("--nms_thres", type=float, default=0.4, help="iou thresshold for non-maximum suppression")
@@ -55,6 +56,7 @@ if __name__ == "__main__":
     parser.add_argument("--n_cpu", type=int, default=0, help="number of cpu threads to use during batch generation")
     parser.add_argument("--img_size", type=int, default=416, help="size of each image dimension")
     parser.add_argument("--checkpoint_model", type=str, help="path to checkpoint model")
+    parser.add_argument("--domain_translated_model", default=True, help="if False will load model trained without domain translation")
     opt = parser.parse_args()
     print(opt)
     
@@ -64,13 +66,20 @@ if __name__ == "__main__":
 
     # Set up model
     model = Darknet(opt.model_def, img_size=opt.img_size).to(device)
-
-    if opt.weights_path.endswith(".weights"):
-        # Load darknet weights
-        model.load_darknet_weights(opt.weights_path)
-    else:
-        # Load checkpoint weights
-        model.load_state_dict(torch.load(opt.weights_path))
+    if opt.domain_translated_model == True :
+        if opt.weights_path.endswith(".weights"):
+            # Load darknet weights
+            model.load_darknet_weights(opt.weights_path)
+        else:
+            # Load checkpoint weights
+            model.load_state_dict(torch.load(opt.weights_path))
+    if opt.domain_translated_model == False :
+        if opt.weights_path.endswith(".weights"):
+            # Load darknet weights
+            model.load_darknet_weights('non_domain_translated_model.pth')
+        else:
+            # Load checkpoint weights
+            model.load_state_dict(torch.load('non_domain_translated_model.pth'))
 
     model.eval()  # Set in evaluation mode
 
@@ -176,7 +185,8 @@ if __name__ == "__main__":
         x for x in os.listdir(path)
         if os.path.isfile(os.path.join(path, x))
     ])
-    print(random_filename)
-    img = io.imread("output" + "/" +str(random_filename), plugin='matplotlib')
-    io.imshow(img)
-    io.show()
+
+    print('domain translated model = ',opt.domain_translated_model)
+    print('Showing detections for:',random_filename)
+    image = Image.open("output" + "/" +str(random_filename))
+    image.show()
