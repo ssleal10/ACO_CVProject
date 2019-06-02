@@ -176,6 +176,5 @@ if __name__ == "__main__":
         if os.path.isfile(os.path.join(path, x))
     ])
     print(random_filename)
-    img=mpimg.imread("output" + "/" +str(random_filename))
-    imgplot = plt.imshow(img)
-    plt.show(imgplot)
+    image = Image.open("output" + "/" +str(random_filename))
+    image.show()
