@@ -2,7 +2,7 @@
 
 Repository for the computer vision project / Retail Product Checkout Dataset
 
-## To run the DEMO & TEST (Detections & Precision/Recall) using the trained YOLO model.
+# To run the DEMO & TEST (Detections & Precision/Recall) using the trained YOLO model.
 
 1. cd PyTorch-YOLOv3
 2. Run "python3 demo.py"
