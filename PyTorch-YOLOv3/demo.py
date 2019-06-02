@@ -48,7 +48,6 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--image_folder", type=str, default="val2019p", help="path to dataset")
     parser.add_argument("--model_def", type=str, default="config/yolov3-custom.cfg", help="path to model definition file")
-    parser.add_argument("--weights_path", type=str, default="domain_translated_model.pth", help="path to weights file")
     parser.add_argument("--class_path", type=str, default="data/custom/classes.names", help="path to class label file")
     parser.add_argument("--conf_thres", type=float, default=0.6, help="object confidence threshold")
     parser.add_argument("--nms_thres", type=float, default=0.4, help="iou thresshold for non-maximum suppression")
@@ -67,19 +66,11 @@ if __name__ == "__main__":
     # Set up model
     model = Darknet(opt.model_def, img_size=opt.img_size).to(device)
     if opt.domain_translated_model == True :
-        if opt.weights_path.endswith(".weights"):
-            # Load darknet weights
-            model.load_darknet_weights(opt.weights_path)
-        else:
-            # Load checkpoint weights
-            model.load_state_dict(torch.load(opt.weights_path))
+        # Load checkpoint weights
+        model.load_state_dict(torch.load('domain_translated_model.pth'))
     if opt.domain_translated_model == False :
-        if opt.weights_path.endswith(".weights"):
-            # Load darknet weights
-            model.load_darknet_weights('non_domain_translated_model.pth')
-        else:
-            # Load checkpoint weights
-            model.load_state_dict(torch.load('non_domain_translated_model.pth'))
+        # Load checkpoint weights
+        model.load_state_dict(torch.load('non_domain_translated_model.pth'))
 
     model.eval()  # Set in evaluation mode
 
