@@ -14,8 +14,8 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 3. Place the images folder obtained to PyTorch-YOLOv3/data/custom/images
 4. mkdir labels
 5. Run "python3 ACO_crp_YOLO.py"
-6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels}
-7. Run "--model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
+6. Place the labels folder obtained to PyTorch-YOLOv3/data/custom/labels
+7. Run "python3 train.py --model_def config/yolov3-custom.cfg --data_config config/custom.data --epochs 7"
 
 ### To run the DEMO (detect) using the trained YOLO model.
 
