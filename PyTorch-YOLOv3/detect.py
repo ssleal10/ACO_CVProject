@@ -93,6 +93,8 @@ if __name__ == "__main__":
 
     print("\nSaving images:")
     # Iterate through images and save plot of detections
+    open("Results.txt","w")
+    file = open("Results.txt","a")
     for img_i, (path, detections) in enumerate(zip(imgs, img_detections)):
 
         print("(%d) Image: '%s'" % (img_i, path))
@@ -110,10 +112,14 @@ if __name__ == "__main__":
             unique_labels = detections[:, -1].cpu().unique()
             n_cls_preds = len(unique_labels)
             bbox_colors = random.sample(colors, n_cls_preds)
+            filename=path
+            import re
+            #filename = 'abcdc.com'
+            filename = re.sub('\../retail-product-checkout-dataset/val2019/$', '', filename)
+            file.write(filename+";")
             for x1, y1, x2, y2, conf, cls_conf, cls_pred in detections:
 
                 print("\t+ Label: %s, Conf: %.5f" % (classes[int(cls_pred)], cls_conf.item()))
-
                 box_w = x2 - x1
                 box_h = y2 - y1
 
@@ -131,6 +137,8 @@ if __name__ == "__main__":
                     verticalalignment="top",
                     bbox={"color": color, "pad": 0},
                 )
+                file.write(str(classes[int(cls_pred)])+",")
+            file.write(": \n") 
 
         # Save generated image with detections
         plt.axis("off")
@@ -139,3 +147,4 @@ if __name__ == "__main__":
         filename = path.split("/")[-1].split(".")[0]
         plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
         plt.close()
+    file.close()
