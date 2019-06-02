@@ -24,6 +24,7 @@ import urllib.request
 import zipfile
 import random
 import matplotlib.image as mpimg
+from skimage import io
 
 if __name__ == "__main__":
     print('Downloading images...')
@@ -176,5 +177,6 @@ if __name__ == "__main__":
         if os.path.isfile(os.path.join(path, x))
     ])
     print(random_filename)
-    image = Image.open("output" + "/" +str(random_filename))
-    image.show()
+    img = io.imread("output" + "/" +str(random_filename), plugin='matplotlib')
+    io.imshow(img)
+    io.show()
