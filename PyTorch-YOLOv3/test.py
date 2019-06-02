@@ -3,7 +3,8 @@ from skimage.transform import resize
 import os
 import urllib.request
 import json
-
+# Carga el .txt (Results.txt)de resultados generados por demo.py y detect.py 
+# y calcula precisión y cobertura.
 print('Downloading data...')
 url = 'https://www.dropbox.com/s/anvgpasg9t022cl/instances_val2019.json?dl=1'  
 urllib.request.urlretrieve(url,'instances_val2019.json')
