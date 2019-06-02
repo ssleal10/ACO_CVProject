@@ -178,4 +178,4 @@ if __name__ == "__main__":
     print(random_filename)
     img=mpimg.imread("output" + "/" +str(random_filename))
     imgplot = plt.imshow(img)
-    plt.show()
+    plt.show(imgplot)
