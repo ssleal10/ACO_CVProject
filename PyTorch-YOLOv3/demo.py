@@ -41,8 +41,6 @@ if __name__ == "__main__":
     
     url = 'https://www.dropbox.com/s/wveb53yauo63qzg/yolov3_ckpt_6.pth?dl=1'  
     urllib.request.urlretrieve(url,'domain_translated_model.pth') 
-    url2 = 'https://www.dropbox.com/s/4culeqpjhthj5x7/checkpointmodel2.pth?dl=1'
-    urllib.request.urlretrieve(url2,'non_domain_translated_model.pth')
     print('Done!')
     
     parser = argparse.ArgumentParser()
@@ -54,7 +52,6 @@ if __name__ == "__main__":
     parser.add_argument("--batch_size", type=int, default=1, help="size of the batches")
     parser.add_argument("--n_cpu", type=int, default=0, help="number of cpu threads to use during batch generation")
     parser.add_argument("--img_size", type=int, default=416, help="size of each image dimension")
-    parser.add_argument("--domain_translated_model", default=True, help="if False will load model trained without domain translation")
     opt = parser.parse_args()
     print(opt)
     
@@ -64,12 +61,9 @@ if __name__ == "__main__":
 
     # Set up model
     model = Darknet(opt.model_def, img_size=opt.img_size).to(device)
-    if opt.domain_translated_model == True :
-        # Load checkpoint weights
-        model.load_state_dict(torch.load('domain_translated_model.pth'))
-    if opt.domain_translated_model == False :
-        # Load checkpoint weights
-        model.load_state_dict(torch.load('non_domain_translated_model.pth'))
+
+    model.load_state_dict(torch.load('domain_translated_model.pth'))
+
 
     model.eval()  # Set in evaluation mode
 
@@ -176,7 +170,6 @@ if __name__ == "__main__":
         if os.path.isfile(os.path.join(path, x))
     ])
 
-    print('domain translated model = ',opt.domain_translated_model)
     print('Showing detections for:',random_filename)
     image = Image.open("output" + "/" +str(random_filename))
     image.show()
