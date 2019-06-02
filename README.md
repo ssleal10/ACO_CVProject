@@ -6,7 +6,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 
 1. cd PyTorch-YOLOv3
 2. Run "python3 demo.py"
-3. See results in output directory.
+3. See more results in output directory.
 
 To evaluate results (get precision and recall) obtained in demo:
 
