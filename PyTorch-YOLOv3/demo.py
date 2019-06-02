@@ -22,6 +22,7 @@ import matplotlib.patches as patches
 from matplotlib.ticker import NullLocator
 import urllib.request
 import zipfile
+import random
 
 if __name__ == "__main__":
     print('Downloading images...')
@@ -167,4 +168,12 @@ if __name__ == "__main__":
         plt.savefig(f"output/{filename}.png", bbox_inches="tight", pad_inches=0.0)
         plt.close()
     file.close()
-
+    
+    path = "output"
+    random_filename = random.choice([
+        x for x in os.listdir(path)
+        if os.path.isfile(os.path.join(path, x))
+    ])
+    print(random_filename)
+    image = Image.open("output" + "/" +str(random_filename))
+    image.show()
