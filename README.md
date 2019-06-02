@@ -2,7 +2,10 @@
 
 Repository for the computer vision project / Retail Product Checkout Dataset
 
-# To run the DEMO & TEST (Detections & Precision/Recall) using the trained YOLO model.
+# To run the TEST & DEMO( Precision/Recall & Detections ) using the trained YOLO model.
+
+1. Run "python3 test.py"
+*if ran before demo.py: evaluates the results obtained in the validation dataset (gets precision and recall). if ran after demo.py: evaluates the results obtained in the demo images(gets precision and recall)*
 
 1. cd PyTorch-YOLOv3
 2. Run "python3 demo.py"
@@ -10,9 +13,7 @@ Repository for the computer vision project / Retail Product Checkout Dataset
 
 To evaluate results (get precision and recall) obtained in demo:
 
-
-1. Run "python3 test.py"
-*if ran before demo.py: evaluates the results obtained in the validation dataset (gets precision and recall). if ran after demo.py: evaluates the results obtained in the demo images(gets precision and recall)*
+4. Run "python3 test.py": will overwrite old "Results.txt"(Results from validation dataset).
 
 The script PR_curve.py depicts the precision-recall curve presented in the paper obtained using several confidence thresholds for a specific model. In there precision and recall are the ones obtained for non domain translated model. 
 
